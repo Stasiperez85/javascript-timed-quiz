@@ -39,33 +39,17 @@ p {
 
 .option-container {
     display: flex;
+    flex-direction: column;
     margin-bottom: 0.8rem;
     width: 25%;
-    background: var(--primary);
     font-size: 3rem;
     min-width: 10rem;
     border-radius: 10px;
 }
- 
-.option-item {
-    padding: 0 25px;
-    color: var(--secondary);
-}
-
 
 .option-text {
     color: var(--secondary);
     padding: 5px 0px; 
-}
-
-.correct {
-    background: var(--tertiary);
-    color: var(--secondary);
-}
-
-.incorrect {
-    background: #ff000f;
-    color: var(--secondary);
 }
 
 @media screen and (max-width: 768px) {
