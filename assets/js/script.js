@@ -2,13 +2,14 @@ var startButton = document.querySelector(".start-btn");
 var nextButton = document.querySelector(".next-btn")
 var startCard = document.querySelector("#start-card");
 var questionCard = document.querySelector("#question-card")
-var optionButton = document.querySelector("#btn")
+var optButton = document.querySelectorAll(".btn")
 var question = document.querySelector("#question")
 var choices = document.querySelector("#choices")
 var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
 var option3 = document.querySelector("#option3");
 var option4 = document.querySelector("#option4");
+var points = 0
 var qindex = 0
 
 
@@ -20,7 +21,7 @@ var questions = [
     },
     {
         title: "Which of the following type of variable is visible only within a function where it is defined?",
-        choiceA: ["global variable", "local variable", "local variable", "local variable"],
+        choiceA: ["global variable", "local variable", "whole variable", "All the above"],
         answer: "local variable"
     },
     {
@@ -47,11 +48,23 @@ function nextQuestion() {
  option3.textContent = questions[qindex].choiceA[2]
  option4.textContent = questions[qindex].choiceA[3]
 
-nextButton.onlcick = ()=>{
-    if(qindex<= questions.length - 1)
-        qindex++;
 }
-}
+
+console.log(optButton)
+optButton.forEach(button=>{
+    button.addEventListener("click", function(event){
+        console.log(this.textContent)
+        if (this.textContent === questions[qindex].answer) {
+            console.log(true)
+            points++
+            console.log(points)
+            qindex++
+        nextQuestion()
+        }
+        
+    })
+})
+
 
 
 
