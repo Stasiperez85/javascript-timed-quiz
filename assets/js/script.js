@@ -1,17 +1,36 @@
 var startButton = document.querySelector(".start-btn");
-var nextButton = document.querySelector(".next-btn")
+var nextButton = document.querySelector(".next-btn");
 var startCard = document.querySelector("#start-card");
 var questionCard = document.querySelector("#question-card")
 var optButton = document.querySelectorAll(".btn")
 var question = document.querySelector("#question")
-var choices = document.querySelector("#choices")
+var choices = document.querySelector("#choices");
 var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
 var option3 = document.querySelector("#option3");
 var option4 = document.querySelector("#option4");
+var timer = document.querySelector(".timer");
+var timeCount = document.querySelector(".timer");
 var points = 0
 var qindex = 0
 
+
+
+function startCounter(seconds){
+    let timeCount = seconds;
+
+    const interval = setInterval(() => {
+        console.log(timeCount);
+        timeCount--;
+
+        if (timeCount < 0) {
+            clearInterval(interval);
+            console.log("Done")
+        }
+    }, 1000)
+}
+
+startCounter(60);
 
 var questions = [
     {
@@ -66,6 +85,16 @@ optButton.forEach(button=>{
 })
 
 
+// optButton[qindex].addEventListener("click", () => {
+//         if (answer === "true") {
+//         choices[qindex].innerHTML = "Correct";
+//         choices[qindex],style.color = "green";
+//         } else {
+//             choices[qindex].innerHTML = "Wrong";
+//             choices[qindex],style.color = "red"; 
+//         }
+// })
+
 
 
     // create for loop
@@ -75,7 +104,4 @@ optButton.forEach(button=>{
     // increment index var inside onclick function
     // call on next question
     // create base case to end quiz
-
-
-
 

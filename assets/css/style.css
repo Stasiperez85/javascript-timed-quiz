@@ -21,7 +21,7 @@
 
 .option-container {
     width: 100vw;
-    height: 0;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,7 +64,14 @@ p {
     display: none;
 }
 
-
+.time-info {
+    position: absolute; 
+    top: 5px;
+    right: 5px;
+    padding: 35px 150px;
+    /* text-align: right; */
+    font-size: 1.3rem
+}
 
 .option-text {
     color: var(--secondary);
@@ -73,6 +80,6 @@ p {
 
 @media screen and (max-width: 768px) {
     .option-container {
-        min-width: 19rem;
+        min-width: 59rem;
     }
 }
