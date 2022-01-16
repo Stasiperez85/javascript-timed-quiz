@@ -64,6 +64,10 @@ p {
     display: none;
 }
 
+#results-card {
+    display: none;
+}
+
 .time-info {
     position: absolute; 
     top: 5px;

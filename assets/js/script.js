@@ -12,9 +12,10 @@ var option3 = document.querySelector("#option3");
 var option4 = document.querySelector("#option4");
 var currentTime = document.querySelector("#current-time");
 var timeCount = document.querySelector(".timer");
-var timer = document.querySelector(".time-info")
+// var timer = document.querySelector(".time-info")
 var points = 0
 var qindex = 0
+var timer = 60
 
 
 var questions = [
@@ -65,10 +66,10 @@ optButton.forEach(button=>{
             qindex++
         nextQuestion()
         }
-        
     })
 })
 
+ 
 function startCounter(seconds){
     let timeCount = seconds;
 
@@ -76,15 +77,14 @@ function startCounter(seconds){
         console.log(timeCount);
         timeCount--;
         currentTime.textContent="Time:" + timeCount;
-        if (timeCount < 0) {
+        if (timeCount === 0) {
             clearInterval(timer);
-            // allDone_();
             alert("Time's up!")
         } 
     }, 1000)
 }
 
-startCounter(5);
+startCounter(60);
 
 
 // optButton[questions].addEventListener("click", () => {
@@ -97,8 +97,7 @@ startCounter(5);
 //             answer[questions],style.color = "red"; 
 //         }
 // })
-
-function endQuiz(allDone_) {
+function endQuiz() {
     console.log("Goodbye World!")
     questionCard.style.display = "none"
     resultsCard.style.display = "block"
