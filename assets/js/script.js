@@ -9,7 +9,7 @@ var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
 var option3 = document.querySelector("#option3");
 var option4 = document.querySelector("#option4");
-var timer = document.querySelector(".timer");
+var currentTime = document.querySelector("#current-time");
 var timeCount = document.querySelector(".timer");
 var points = 0
 var qindex = 0
@@ -25,12 +25,16 @@ function startCounter(seconds){
 
         if (timeCount < 0) {
             clearInterval(interval);
-            console.log("Done")
+            allDone_();
+            currentTime.textContent = "Time's up!";
         }
+
+        currentTime.textContent="Time:" + timeCount;
+
     }, 1000)
 }
 
-startCounter(60);
+startCounter(5);
 
 var questions = [
     {
@@ -85,15 +89,16 @@ optButton.forEach(button=>{
 })
 
 
-// optButton[qindex].addEventListener("click", () => {
-//         if (answer === "true") {
-//         choices[qindex].innerHTML = "Correct";
-//         choices[qindex],style.color = "green";
-//         } else {
-//             choices[qindex].innerHTML = "Wrong";
-//             choices[qindex],style.color = "red"; 
-//         }
-// })
+optButton[questions].addEventListener("click", () => {
+        if (answer === "true") {
+            console.log(true);s
+        answer[questions].innerHTML = "Correct";
+        answer[questions],style.color = "green";
+        } else {
+            answer[questions].innerHTML = "Wrong";
+            answer[questions],style.color = "red"; 
+        }
+})
 
 
 
