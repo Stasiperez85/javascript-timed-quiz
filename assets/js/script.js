@@ -2,6 +2,7 @@ var startButton = document.querySelector(".start-btn");
 var nextButton = document.querySelector(".next-btn");
 var startCard = document.querySelector("#start-card");
 var questionCard = document.querySelector("#question-card")
+var resultsCard = document.querySelector("#results-card")
 var optButton = document.querySelectorAll(".btn")
 var question = document.querySelector("#question")
 var choices = document.querySelector("#choices");
@@ -11,30 +12,10 @@ var option3 = document.querySelector("#option3");
 var option4 = document.querySelector("#option4");
 var currentTime = document.querySelector("#current-time");
 var timeCount = document.querySelector(".timer");
+var timer = document.querySelector(".time-info")
 var points = 0
 var qindex = 0
 
-
-
-function startCounter(seconds){
-    let timeCount = seconds;
-
-    const interval = setInterval(() => {
-        console.log(timeCount);
-        timeCount--;
-
-        if (timeCount < 0) {
-            clearInterval(interval);
-            allDone_();
-            currentTime.textContent = "Time's up!";
-        }
-
-        currentTime.textContent="Time:" + timeCount;
-
-    }, 1000)
-}
-
-startCounter(5);
 
 var questions = [
     {
@@ -54,11 +35,11 @@ var questions = [
     },
 ]
 
+
 console.log(startButton);
 startButton.addEventListener("click", startQuiz)
 
 function startQuiz() {
-    console.log("Hello World!")
     startCard.style.display = "none"
     questionCard.style.display = "block"
     nextQuestion()
@@ -88,17 +69,48 @@ optButton.forEach(button=>{
     })
 })
 
+function startCounter(seconds){
+    let timeCount = seconds;
 
-optButton[questions].addEventListener("click", () => {
-        if (answer === "true") {
-            console.log(true);s
-        answer[questions].innerHTML = "Correct";
-        answer[questions],style.color = "green";
-        } else {
-            answer[questions].innerHTML = "Wrong";
-            answer[questions],style.color = "red"; 
-        }
-})
+    const timer = setInterval(() => {
+        console.log(timeCount);
+        timeCount--;
+        currentTime.textContent="Time:" + timeCount;
+        if (timeCount < 0) {
+            clearInterval(timer);
+            // allDone_();
+            alert("Time's up!")
+        } 
+    }, 1000)
+}
+
+startCounter(5);
+
+
+// optButton[questions].addEventListener("click", () => {
+//         if (answer === "true") {
+//             console.log(optButton);
+//         answer[questions].innerHTML = "Correct";
+//         answer[questions],style.color = "green";
+//         } else {
+//             answer[questions].innerHTML = "Wrong";
+//             answer[questions],style.color = "red"; 
+//         }
+// })
+
+function endQuiz(allDone_) {
+    console.log("Goodbye World!")
+    questionCard.style.display = "none"
+    resultsCard.style.display = "block"
+    highscore()
+}
+
+
+
+
+
+
+
 
 
 
