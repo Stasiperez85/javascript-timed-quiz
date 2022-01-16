@@ -15,7 +15,7 @@ var timeCount = document.querySelector(".timer");
 // var timer = document.querySelector(".time-info")
 var points = 0
 var qindex = 0
-var timer = 60
+var timer = 30
 
 
 var questions = [
@@ -64,8 +64,8 @@ optButton.forEach(button=>{
             points++
             console.log(points)
             qindex++
-        nextQuestion()
         }
+        nextQuestion()
     })
 })
 
@@ -80,11 +80,12 @@ function startCounter(seconds){
         if (timeCount === 0) {
             clearInterval(timer);
             alert("Time's up!")
+            location.href = "./highscore.html"
         } 
     }, 1000)
 }
 
-startCounter(60);
+startCounter(30);
 
 
 // optButton[questions].addEventListener("click", () => {
