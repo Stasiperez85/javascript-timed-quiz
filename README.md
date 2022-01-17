@@ -8,3 +8,4 @@
 
 https://github.com/Stasiperez85/javascript-timed-quiz
 
+https://stasiperez85.github.io/javascript-timed-quiz/
