@@ -37,7 +37,6 @@ var questions = [
 ]
 
 // Start quiz
-// console.log(startButton);
 startButton.addEventListener("click", startQuiz)
 
 // Remove intro part and move to quiz part
@@ -45,22 +44,23 @@ function startQuiz() {
     startCard.style.display = "none"
     questionCard.style.display = "block"
     nextQuestion()
+    startCounter(30);
 }
 
 // Function to make questions and answer appear
 function nextQuestion() {
- question.textContent = questions[qindex].title
- option1.textContent = questions[qindex].choiceA[0]
- option2.textContent = questions[qindex].choiceA[1]
- option3.textContent = questions[qindex].choiceA[2]
- option4.textContent = questions[qindex].choiceA[3]
+    question.textContent = questions[qindex].title
+    option1.textContent = questions[qindex].choiceA[0]
+    option2.textContent = questions[qindex].choiceA[1]
+    option3.textContent = questions[qindex].choiceA[2]
+    option4.textContent = questions[qindex].choiceA[3]
 
 }
 
 // Accessing question/answer array to make next one appear
 console.log(optButton)
-optButton.forEach(button=>{
-    button.addEventListener("click", function(event){
+optButton.forEach(button => {
+    button.addEventListener("click", function (event) {
         console.log(this.textContent)
         if (this.textContent === questions[qindex].answer) {
             console.log(true)
@@ -68,48 +68,29 @@ optButton.forEach(button=>{
             console.log(points)
             qindex++
         }
+
         nextQuestion()
     })
 })
 
 // Timer counter and going to highscore page
-function startCounter(seconds){
+function startCounter(seconds) {
     let timeCount = seconds;
 
     const timer = setInterval(() => {
         console.log(timeCount);
         timeCount--;
-        currentTime.textContent="Time:" + timeCount;
+        currentTime.textContent = "Time:" + timeCount;
         if (timeCount === 0) {
             clearInterval(timer);
             alert("Time's up!")
             location.href = "./highscore.html"
-        } 
+        }
     }, 1000)
 }
-startCounter(30);
-
-
-
-// optButton[questions].addEventListener("click", () => {
-//         if (answer === "true") {
-//             console.log(optButton);
-//         answer[questions].innerHTML = "Correct";
-//         answer[questions],style.color = "green";
-//         } else {
-//             answer[questions].innerHTML = "Wrong";
-//             answer[questions],style.color = "red"; 
-//         }
-// })
 
 
 
 
-    // create for loop
-    // create buttons inside for loop
-    // append to DOM
-    // attach onclick function to each button
-    // increment index var inside onclick function
-    // call on next question
-    // create base case to end quiz
+
 
