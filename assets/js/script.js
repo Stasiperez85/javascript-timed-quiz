@@ -12,12 +12,12 @@ var option3 = document.querySelector("#option3");
 var option4 = document.querySelector("#option4");
 var currentTime = document.querySelector("#current-time");
 var timeCount = document.querySelector(".timer");
-// var timer = document.querySelector(".time-info")
+var saveScore = document.querySelector("#save-btn");
 var points = 0
 var qindex = 0
 var timer = 30
 
-
+// Questions and Answers arrary for quiz
 var questions = [
     {
         title: "Which of the following is an advantage of using JavaScript?",
@@ -36,16 +36,18 @@ var questions = [
     },
 ]
 
-
-console.log(startButton);
+// Start quiz
+// console.log(startButton);
 startButton.addEventListener("click", startQuiz)
 
+// Remove intro part and move to quiz part
 function startQuiz() {
     startCard.style.display = "none"
     questionCard.style.display = "block"
     nextQuestion()
 }
 
+// Function to make questions and answer appear
 function nextQuestion() {
  question.textContent = questions[qindex].title
  option1.textContent = questions[qindex].choiceA[0]
@@ -55,6 +57,7 @@ function nextQuestion() {
 
 }
 
+// Accessing question/answer array to make next one appear
 console.log(optButton)
 optButton.forEach(button=>{
     button.addEventListener("click", function(event){
@@ -69,7 +72,7 @@ optButton.forEach(button=>{
     })
 })
 
- 
+// Timer counter and going to highscore page
 function startCounter(seconds){
     let timeCount = seconds;
 
@@ -84,8 +87,8 @@ function startCounter(seconds){
         } 
     }, 1000)
 }
-
 startCounter(30);
+
 
 
 // optButton[questions].addEventListener("click", () => {
@@ -98,18 +101,6 @@ startCounter(30);
 //             answer[questions],style.color = "red"; 
 //         }
 // })
-function endQuiz() {
-    console.log("Goodbye World!")
-    questionCard.style.display = "none"
-    resultsCard.style.display = "block"
-    highscore()
-}
-
-
-
-
-
-
 
 
 
